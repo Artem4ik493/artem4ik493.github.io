@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/logo32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/logo16x16.png">
+  <title>artem4ik493 </title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    @font-face {
+      font-family: 'PantonTrialBold';
+      src: url('Panton-Trial-Bold.ttf') format('truetype');
+    }
+
+    body {
+      font-family: 'PantonTrialBold', sans-serif;
+    }
+
+    button,
+    .social-link {
+      transition: all 0.3s ease;
+    }
+
+    button:hover,
+    .social-link:hover {
+      transform: scale(1.05);
+    }
+
+    #continue-container {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 60;
+      transition: opacity 0.3s ease;
+    }
+
+    input[type=range] {
+      background: rgba(255, 255, 255, 0.1);
+      width: 100px;
+      height: 6px;
+      border-radius: 9999px;
+      -webkit-appearance: none;
+      outline: none;
+    }
+
+    body.bg-\[\#d3d3d3\] input[type=range] {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-color: #8c49d8;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #continue-btn:hover {
+      transform: scale(1.05) !important;
+    }
+
+    #continue-btn {
+      background: rgba(50, 50, 50, 0.5);
+      border: 2px solid #8c49d8;
+    }
+
+    #avatar {
+      box-shadow: 0px 0px 60px 0px rgba(140, 73, 216, 0.8);
+      border: 4px solid #8c49d8;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 10px rgba(140, 73, 216, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(140, 73, 216, 0.8), 0 0 30px rgba(140, 73, 216, 0.4);
+      }
+
+      100% {
+        box-shadow: 0 0 10px rgba(140, 73, 216, 0.5);
+      }
+    }
+
+    #panel {
+      box-shadow: 0px 5px 30px -4px rgba(140, 73, 216, 0.8);
+      border: 3px solid #8c49d8;
+    }
+
+    #theme-transition {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #d3d3d3;
+      clip-path: circle(0% at 0 0);
+      z-index: 50;
+      pointer-events: none;
+      transition: clip-path 0.5s ease-out;
+    }
+
+    #theme-transition.active {
+      clip-path: circle(150% at 0 0);
+    }
+
+    @media (min-width: 641px) {
+      #view-count-container {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+      }
+    }
+
+    #audio-visualizer-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #visualizer {
+      min-height: 40px;
+      width: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      position: relative;
+    }
+
+    body.bg-\[\#d3d3d3\] #visualizer {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .bar {
+      width: 2px;
+      min-height: 1px;
+      margin: 0 1px;
+      background: rgba(255, 255, 255, 0.8);
+      transition: height 300ms ease-out;
+      transform-origin: bottom;
+      border-radius: 2px;
+    }
+
+    body.bg-\[\#d3d3d3\] .bar {
+      background: rgba(100, 100, 100, 0.8);
+    }
+
+    @media (max-width: 640px) {
+      #visualizer {
+        min-height: 40px;
+        width: 150px;
+      }
+
+      .bar {
+        width: 3px;
+        margin: 0 0.5px;
+      }
+    }
+
+    #controls-container {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 9999px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    body.bg-\[\#d3d3d3\] #controls-container {
+      background: #ffffff;
+    }
+
+    .music-control-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    .music-control-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 1);
+      transform: scale(1.05);
+    }
+
+    body.bg-\[\#d3d3d3\] .music-control-btn {
+      background: rgba(255, 255, 255, 0.9);
+      color: rgba(100, 100, 100, 0.8);
+    }
+
+    body.bg-\[\#d3d3d3\] .music-control-btn:hover {
+      background: rgba(255, 255, 255, 1);
+      color: rgba(100, 100, 100, 1);
+    }
+  </style>
+</head>
+
+<body class="h-screen overflow-hidden bg-black transition-colors duration-500"  oncopy="return false" oncut="return false" onpaste="return false" onselectstart="return false" oncontextmenu="return false">
+  <div id="theme-transition"></div>
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+  <div id="continue-container">
+    <button id="continue-btn"
+      class="bg-white/20 text-white py-4 px-8 border-2 border-white/50 rounded-full text-xl cursor-pointer animate-[pulseGlow_2s_infinite]">
+      Продолжить
+    </button>
+  </div>
+  <div id="content" class="blur-[10px] transition-[filter] duration-300 pointer-events-none absolute inset-0">
+    <div id="overlay"
+      class="fixed inset-0 bg-black/70 opacity-0 transition-opacity duration-500 pointer-events-none z-30"></div>
+    <div id="fog"
+      class="fixed inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-30 z-10 animate-[fogMove_20s_infinite_linear]">
+    </div>
+    <canvas id="rainfield" class="absolute inset-0 z-0"></canvas>
+    <div
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center z-20">
+      <div id="panel"
+        class="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl w-[90%] max-w-2xl transition-transform duration-300 ease-out transform-gpu">
+        <div id="top-panel"
+          class="absolute -top-[60px] left-1/2 transform -translate-x-1/2 w-[200px] bg-white/10 backdrop-blur-xl p-2 rounded-full flex justify-around items-center z-40">
+          <div class="flex gap-2">
+            <button class="lang-btn text-white px-2 py-1 rounded" data-lang="en">EN</button>
+            <button class="lang-btn text-white px-2 py-1 rounded" data-lang="ru">RU</button>
+          </div>
+          <button id="theme-toggle" class="text-white">
+            <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+              </path>
+            </svg>
+          </button>
+        </div>
+        <div class="flex justify-center">
+          <img src="img/avatar.jpg" id="avatar"
+            class="w-32 h-32 rounded-full border-4 border-white/50 shadow-[0_0_40px_10px_rgba(255,255,255,0.3)] mb-6">
+        </div>
+        <div class="text-center text-white space-y-4">
+          <h1 class="text-4xl font-bold mb-2" id="title">artem4ik493</h1>
+          <p class="opacity-80 transition-opacity duration-500" id="bio">Технический администратор со стажем 1.5 года</p>
+        </div>
+        <div class="flex flex-col items-center gap-6 mt-8">
+          <div class="flex justify-center gap-6">
+            <a href="https://steamcommunity.com/profiles/76561199482761350/" class="social-link text-white hover:text-gray-300">
+              <i class="fab fa-steam fa-2x"></i>
+            <a href="https://discordapp.com/users/1088865991515185213"
+              class="social-link text-white hover:text-gray-300">
+              <i class="fab fa-discord fa-2x"></i>
+            </a>
+            <a href="https://t.me/artem4ik493" class="social-link text-white hover:text-gray-300">
+              <i class="fab fa-telegram fa-2x"></i>
+            </a>
+            <a href="https://northlights.org" class="social-link text-white hover:text-gray-300">
+              <i class="fa fa-globe fa-2x"></i>
+            <a href="https://github.com/Artem4ik493" class="social-link text-white hover:text-gray-300">
+              <i class="fab fa-github fa-2x"></i>
+            </a>
+          </div>
+          <div id="view-count-container" class="flex items-center space-x-2 text-white/80">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span id="viewCount" class="text-sm">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="audio-visualizer-container">
+    <button id="prev-track" class="music-control-btn">
+      <i class="fas fa-play fa-lg fa-flip-horizontal"></i>
+    </button>
+    <div id="visualizer" class="flex justify-around items-center">
+      <div id="controls-container">
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+      </div>
+    </div>
+    <button id="next-track" class="music-control-btn">
+      <i class="fas fa-play fa-lg"></i>
+    </button>
+  </div>
+  <script>
+    let visitCount = localStorage.getItem('visitCount') || 0;
+    visitCount++;
+    localStorage.setItem('visitCount', visitCount);
+    document.getElementById('viewCount').textContent = visitCount;
+
+    const overlay = document.getElementById('overlay');
+    const panel = document.getElementById('panel');
+    const continueBtn = document.getElementById('continue-btn');
+    const continueContainer = document.getElementById('continue-container');
+    const content = document.getElementById('content');
+    const audioElement = document.getElementById('music');
+    const topPanel = document.getElementById('top-panel');
+    const themeTransition = document.getElementById('theme-transition');
+    const volumeSlider = document.getElementById('volume-slider');
+    const visualizer = document.getElementById('visualizer');
+    const controlsContainer = document.getElementById('controls-container');
+
+    const tracks = ['music.mp3', 'music_2.mp3', 'music_3.mp3', 'music_4.mp3'];
+    let currentTrackIndex = 0;
+
+    audioElement.volume = volumeSlider.value;
+
+    const fadeInDuration = 3000;
+    const fadeOutDuration = 3000;
+
+    function fadeAudioIn() {
+      let startTime = null;
+      const targetVolume = volumeSlider.value;
+      const startVolume = audioElement.volume;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = (timestamp - startTime) / fadeInDuration;
+        audioElement.volume = Math.min(startVolume + (progress * (targetVolume - startVolume)), targetVolume);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function fadeAudioOut(callback) {
+      let startTime = null;
+      const startVolume = audioElement.volume;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = (timestamp - startTime) / fadeOutDuration;
+        audioElement.volume = Math.max(startVolume - (progress * startVolume), 0);
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else if (callback) {
+          callback();
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function changeTrack(direction) {
+      fadeAudioOut(() => {
+        currentTrackIndex = (currentTrackIndex + direction + tracks.length) % tracks.length;
+        audioElement.src = tracks[currentTrackIndex];
+        audioElement.play().then(() => {
+          fadeAudioIn();
+        }).catch(() => console.log('Автозапуск музыки заблокирован браузером'));
+      });
+    }
+
+    volumeSlider.addEventListener('input', () => {
+      audioElement.volume = volumeSlider.value;
+    });
+
+    continueBtn.addEventListener('click', () => {
+      content.classList.remove('blur-[10px]');
+      content.classList.add('pointer-events-auto');
+      continueContainer.style.opacity = '0';
+      setTimeout(() => continueContainer.style.display = 'none', 300);
+      document.getElementById('audio-visualizer-container').style.opacity = '1';
+      document.getElementById('audio-visualizer-container').style.pointerEvents = 'auto';
+      audioElement.play().then(() => {
+        fadeAudioIn();
+      }).catch(() => console.log('Автозапуск музыки заблокирован браузером'));
+    });
+
+    panel.addEventListener('mousemove', (e) => {
+      const rect = panel.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateY = ((mouseX - centerX) / centerX) * 6;
+      const rotateX = -((mouseY - centerY) / centerY) * 6;
+      panel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    panel.addEventListener('mouseleave', () => {
+      panel.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+
+    const toggleButton = document.getElementById('theme-toggle');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+    let isLightTheme = false;
+
+    function applyTheme() {
+      document.body.classList.toggle('bg-[#d3d3d3]', isLightTheme);
+      document.body.classList.toggle('bg-black', !isLightTheme);
+      panel.classList.toggle('bg-white/90', isLightTheme);
+      topPanel.classList.toggle('bg-white/90', isLightTheme);
+      document.querySelectorAll('.text-white').forEach(el => el.classList.toggle('text-[#333]', isLightTheme));
+      document.getElementById('view-count-container').classList.toggle('text-[#666]', isLightTheme);
+      moonIcon.classList.toggle('hidden', isLightTheme);
+      sunIcon.classList.toggle('hidden', !isLightTheme);
+      rain.setTheme(isLightTheme);
+    }
+
+    toggleButton.addEventListener('click', () => {
+      toggleButton.disabled = true;
+      isLightTheme = !isLightTheme;
+      themeTransition.style.background = isLightTheme ? '#d3d3d3' : '#000000';
+      themeTransition.classList.add('active');
+      setTimeout(() => {
+        applyTheme();
+        themeTransition.classList.remove('active');
+        toggleButton.disabled = false;
+      }, 500);
+    });
+
+    const translations = {
+      en: { title: "Xeliko", bio: "Technical administrator with 1.5 years of experience" },
+      ru: { title: "Xeliko", bio: "Технический администратор со стажем 1.5 года" }
+    };
+    const bioElement = document.getElementById('bio');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        bioElement.style.opacity = '0';
+        setTimeout(() => {
+          bioElement.textContent = translations[lang].bio;
+          bioElement.style.opacity = '1';
+        }, 500);
+      });
+    });
+
+    class Rain {
+      constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.drops = [];
+        this.isLightTheme = false;
+        this.resize();
+        this.init();
+        this.animate();
+      }
+      resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+      }
+      init() {
+        this.drops = [];
+        const dropCount = Math.floor(this.canvas.width / 10);
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        for (let i = 0; i < dropCount; i++) {
+          const isLetter = Math.random() < 0.1;
+          this.drops.push({
+            x: Math.random() * this.canvas.width,
+            y: Math.random() * this.canvas.height,
+            length: isLetter ? 20 : Math.random() * 10 + 5,
+            speedY: Math.random() * 5 + 3,
+            speedX: (Math.random() - 0.5) * 0.5,
+            depth: Math.random() * 0.8 + 0.2,
+            isLetter: isLetter,
+            letter: isLetter ? letters[Math.floor(Math.random() * letters.length)] : null
+          });
+        }
+      }
+      draw() {
+        this.ctx.fillStyle = this.isLightTheme ? '#d3d3d3' : '#000000';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drops.forEach(drop => {
+          if (drop.isLetter) {
+            this.ctx.font = `${drop.depth * 20}px monospace`;
+            this.ctx.fillStyle = this.isLightTheme ? `rgba(100, 100, 100, ${drop.depth})` : `rgba(255, 255, 255, ${drop.depth})`;
+            this.ctx.shadowColor = this.isLightTheme ? '#666' : '#fff';
+            this.ctx.shadowBlur = 10;
+            this.ctx.fillText(drop.letter, drop.x, drop.y);
+            this.ctx.shadowBlur = 0;
+          } else {
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = this.isLightTheme ? `rgba(0, 0, 0, ${drop.depth * 0.5})` : `rgba(255, 255, 255, ${drop.depth * 0.5})`;
+            this.ctx.lineWidth = drop.depth;
+            this.ctx.moveTo(drop.x, drop.y);
+            this.ctx.lineTo(drop.x + drop.speedX * drop.length, drop.y + drop.length);
+            this.ctx.stroke();
+          }
+        });
+      }
+      update() {
+        this.drops.forEach(drop => {
+          drop.y += drop.speedY * drop.depth;
+          drop.x += drop.speedX * drop.depth;
+          if (drop.y > this.canvas.height) {
+            drop.y = -drop.length;
+            drop.x = Math.random() * this.canvas.width;
+            drop.speedY = Math.random() * 5 + 3;
+            drop.speedX = (Math.random() - 0.5) * 0.5;
+            drop.depth = Math.random() * 0.8 + 0.2;
+            const isLetter = Math.random() < 0.1;
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            drop.isLetter = isLetter;
+            drop.letter = isLetter ? letters[Math.floor(Math.random() * letters.length)] : null;
+            drop.length = isLetter ? 20 : Math.random() * 10 + 5;
+          }
+          if (drop.x > this.canvas.width) drop.x = 0;
+          if (drop.x < 0) drop.x = this.canvas.width;
+        });
+      }
+      animate() {
+        this.update();
+        this.draw();
+        requestAnimationFrame(() => this.animate());
+      }
+      setTheme(isLight) {
+        this.isLightTheme = isLight;
+      }
+    }
+
+    const rain = new Rain(document.getElementById('rainfield'));
+
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const analyser = audioContext.createAnalyser();
+    const source = audioContext.createMediaElementSource(audioElement);
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+    analyser.fftSize = 256;
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    function updateVisualizer() {
+      requestAnimationFrame(updateVisualizer);
+      analyser.getByteFrequencyData(dataArray);
+      const visualizerBars = document.querySelectorAll('.bar');
+      const bassRange = Math.floor(bufferLength * 0.2);
+      const bassSum = Array.from(dataArray.slice(0, bassRange)).reduce((a, b) => a + b, 0) / bassRange;
+      visualizerBars.forEach(bar => {
+        const bassIndex = Math.floor(Math.random() * bassRange);
+        const value = dataArray[bassIndex] || 0;
+        let baseHeight = (value / 255) * 20;
+        let heightMultiplier;
+        if (bassSum > 100) {
+          heightMultiplier = Math.random() < 0.5 ? 1.2 : 0.4;
+        } else if (bassSum > 50) {
+          heightMultiplier = Math.random() < 0.7 ? 0.8 : 0.3;
+        } else {
+          heightMultiplier = Math.random() < 0.3 ? 0.6 : 0.2;
+        }
+        const height = Math.max(3, baseHeight * heightMultiplier);
+        bar.style.height = `${height}px`;
+        bar.style.opacity = `${Math.max(0.3, value / 255)}`;
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      createVisualizerBars();
+      rain.resize();
+    });
+
+    function createVisualizerBars() {
+      const visualizerContainer = document.getElementById('visualizer');
+      visualizerContainer.innerHTML = '';
+      const controlsContainer = document.createElement('div');
+      controlsContainer.id = 'controls-container';
+      controlsContainer.innerHTML = `
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+      `;
+      visualizerContainer.appendChild(controlsContainer);
+
+      const containerWidth = visualizerContainer.offsetWidth;
+      const barWidth = window.innerWidth <= 640 ? 3 : 2;
+      const barCount = Math.floor(containerWidth / barWidth) / (window.innerWidth <= 640 ? 10 : 5);
+      for (let i = 0; i < barCount; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        visualizerContainer.appendChild(bar);
+      }
+      const panelRect = panel.getBoundingClientRect();
+      document.getElementById('audio-visualizer-container').style.top = `${panelRect.bottom + 20}px`;
+
+      document.getElementById('prev-track').addEventListener('click', () => changeTrack(-1));
+      document.getElementById('next-track').addEventListener('click', () => changeTrack(1));
+      const volumeSlider = document.getElementById('volume-slider');
+      volumeSlider.addEventListener('input', () => {
+        audioElement.volume = volumeSlider.value;
+      });
+
+      let hideTimeout;
+      visualizer.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeout);
+        controlsContainer.style.opacity = '1';
+        controlsContainer.style.pointerEvents = 'auto';
+      });
+
+      visualizer.addEventListener('mouseleave', () => {
+        hideTimeout = setTimeout(() => {
+          controlsContainer.style.opacity = '0';
+          controlsContainer.style.pointerEvents = 'none';
+        }, 1000);
+      });
+
+      controlsContainer.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeout);
+      });
+
+      controlsContainer.addEventListener('mouseleave', () => {
+        hideTimeout = setTimeout(() => {
+          controlsContainer.style.opacity = '0';
+          controlsContainer.style.pointerEvents = 'none';
+        }, 1000);
+      });
+    }
+
+    createVisualizerBars();
+
+    window.addEventListener('beforeunload', (e) => {
+      e.preventDefault();
+      fadeAudioOut(() => {
+        audioElement.pause();
+      });
+      return null;
+    });
+
+    audioElement.addEventListener('play', () => {
+      audioContext.resume().then(() => {
+        updateVisualizer();
+      }).catch(err => console.error(err));
+    });
+
+    window.addEventListener('load', () => {
+      createVisualizerBars();
+    });
+  </script>
+
+</body>
+</html>
