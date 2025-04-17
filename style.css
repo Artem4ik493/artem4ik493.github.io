@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #66ff00;
+    /* Убираем font-family и color, пусть Tailwind управляет */
+  }
+  
+  /* Эффект курсора и мигания — только для typewriter */
+  .typewriter::after {
+    content: "|";
+    animation: blink 1s step-start infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  /* Если хочешь, можно задать моноширинный шрифт ТОЛЬКО для typewriter */
+  .typewriter {
+    font-family: monospace;
+    /* color: #0f0; */ /* Оставь закомментированным, если Tailwind уже задаёт цвет */
+  }
