@@ -1,0 +1,1555 @@
+
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Artem4ik493 Создаю современные, отзывчивые и интуитивно понятные веб-интерфейсы, обеспечивающие исключительный пользовательский опыт.">
+  <meta name="author" content="Xeliko">
+  <meta name="keywords" content="frontend, разработчик, веб-разработка, Tailwind CSS">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f0f11">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xeliko.great-site.net/">
+  <meta property="og:title" content="artem4ik493 × Технический администратор">
+  <meta property="og:description"
+    content="Создаю современные, отзывчивые и интуитивно понятные веб-интерфейсы, обеспечивающие исключительный пользовательский опыт.">
+
+  <meta property="twitter:url" content="https://xeliko.great-site.net/">
+  <meta property="twitter:title" content="artem4ik493 × Технический администратор">
+  <meta property="twitter:description"
+    content="Создаю современные, отзывчивые и интуитивно понятные веб-интерфейсы, обеспечивающие исключительный пользовательский опыт.">
+
+  <title>artem4ik493 × Технический администратор</title>
+
+  <link rel="icon" href="img/avatar.ico">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            border: "hsl(240 5.9% 90%)",
+            input: "hsl(240 5.9% 90%)",
+            ring: "hsl(240 5.9% 10%)",
+            background: "hsl(240 10% 3.9%)",
+            foreground: "hsl(0 0% 98%)",
+            primary: { DEFAULT: "hsl(240 5.9% 10%)", foreground: "hsl(0 0% 98%)" },
+            secondary: { DEFAULT: "hsl(240 4.8% 95.9%)", foreground: "hsl(240 5.9% 10%)" },
+            destructive: { DEFAULT: "hsl(0 84.2% 60.2%)", foreground: "hsl(0 0% 98%)" },
+            muted: { DEFAULT: "hsl(240 4.8% 95.9%)", foreground: "hsl(240 3.8% 46.1%)" },
+            accent: { DEFAULT: "hsl(240 4.8% 95.9%)", foreground: "hsl(240 5.9% 10%)" },
+            popover: { DEFAULT: "hsl(240 10% 3.9%)", foreground: "hsl(0 0% 98%)" },
+            card: { DEFAULT: "hsl(240 10% 3.9%)", foreground: "hsl(0 0% 98%)" }
+          },
+          keyframes: {
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' }
+            },
+            pulse: {
+              '0%, 100%': { opacity: 1 },
+              '50%': { opacity: 0.5 }
+            },
+            fadeIn: {
+              from: { opacity: 0 },
+              to: { opacity: 1 }
+            },
+            fadeInUp: {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            fadeInRight: {
+              from: { opacity: 0, transform: 'translateX(30px)' },
+              to: { opacity: 1, transform: 'translateX(0)' }
+            },
+            fadeOutLeft: {
+              from: { opacity: 1, transform: 'translateX(0)' },
+              to: { opacity: 0, transform: 'translateX(-30px)' }
+            },
+            weatherFloat: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-5px)' }
+            },
+            weatherRotate: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' }
+            },
+            weatherPulse: {
+              '0%, 100%': { opacity: 0.7, transform: 'scale(1)' },
+              '50%': { opacity: 1, transform: 'scale(1.05)' }
+            },
+            weatherRain: {
+              '0%': { transform: 'translateY(0)', opacity: 0 },
+              '10%': { opacity: 1 },
+              '100%': { transform: 'translateY(20px)', opacity: 0 }
+            },
+            weatherSnow: {
+              '0%': { transform: 'translateY(0) rotate(0deg)', opacity: 0 },
+              '10%': { opacity: 1 },
+              '100%': { transform: 'translateY(20px) rotate(360deg)', opacity: 0 }
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' }
+            },
+            wave: {
+              '0%': { transform: 'translateY(0) scale(1.0)' },
+              '25%': { transform: 'translateY(-5px) scale(1.05)' },
+              '50%': { transform: 'translateY(0) scale(1.0)' },
+              '75%': { transform: 'translateY(5px) scale(0.95)' },
+              '100%': { transform: 'translateY(0) scale(1.0)' }
+            },
+            shake: {
+              '0%, 100%': { transform: 'rotate(0deg)' },
+              '20%': { transform: 'rotate(-2deg)' },
+              '40%': { transform: 'rotate(2deg)' },
+              '60%': { transform: 'rotate(-2deg)' },
+              '80%': { transform: 'rotate(2deg)' }
+            },
+            blink: {
+              '0%, 100%': { opacity: 1 },
+              '50%': { opacity: 0.5 }
+            },
+            floatAnim: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            orb: {
+              '0%': { transform: 'translateX(0) translateY(0)' },
+              '25%': { transform: 'translateX(10px) translateY(-10px)' },
+              '50%': { transform: 'translateX(0) translateY(-20px)' },
+              '75%': { transform: 'translateX(-10px) translateY(-10px)' },
+              '100%': { transform: 'translateX(0) translateY(0)' }
+            },
+            layoutShift: {
+              '0%': { transform: 'translateX(0) translateY(0) scale(1)' },
+              '50%': { transform: 'translateX(var(--layout-shift-x, 0)) translateY(var(--layout-shift-y, 0)) scale(var(--layout-shift-scale, 1))' },
+              '100%': { transform: 'translateX(0) translateY(0) scale(1)' }
+            }
+          },
+          animation: {
+            gradient: 'gradient 1s ease infinite',
+            pulse: 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'fade-in': 'fadeIn 1s ease-in-out forwards',
+            'fade-in-up': 'fadeInUp 1s ease-in-out forwards',
+            float: 'float 1s ease-in-out infinite',
+            'fade-in-right': 'fadeInRight 1s ease-out forwards',
+            'fade-out-left': 'fadeOutLeft 1s ease-in forwards',
+            'weather-float': 'weatherFloat 3s ease-in-out infinite',
+            'weather-rotate': 'weatherRotate 10s linear infinite',
+            'weather-pulse': 'weatherPulse 2s ease-in-out infinite',
+            'weather-rain': 'weatherRain 1.5s linear infinite',
+            'weather-snow': 'weatherSnow 3s linear infinite',
+            shimmer: 'shimmer 2s infinite linear',
+            wave: 'wave 8s ease-in-out infinite',
+            shake: 'shake 0.5s ease-in-out',
+            blink: 'blink 1.5s ease-in-out infinite',
+            'float-anim': 'floatAnim 3s ease-in-out infinite',
+            'orb-anim': 'orb 8s ease-in-out infinite',
+            'layout-shift': 'layoutShift 0.8s ease-in-out forwards'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --transition-duration: 1s;
+      --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html,
+    body {
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      cursor: default;
+      background: hsl(240, 10%, 3.9%);
+    }
+
+    .custom-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      transition: background-color var(--transition-duration) var(--transition-timing);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .text-gradient-indigo-cyan {
+      background: linear-gradient(to right, #818cf8, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .shimmer-effect {
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.05) 20%,
+          rgba(255, 255, 255, 0.1) 60%,
+          rgba(255, 255, 255, 0) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite linear;
+    }
+
+    .section-transition {
+      transition: all var(--transition-duration) var(--transition-timing);
+      width: 100%;
+      opacity: 0;
+      transform: translateX(30px);
+      position: absolute;
+      top: 0;
+    }
+
+    .section-visible {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
+
+    .section-hidden {
+      opacity: 0;
+      transform: translateX(-30px);
+      pointer-events: none;
+    }
+
+    .home-card {
+      transition: all var(--transition-duration) var(--transition-timing);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    @media (min-width: 768px) {
+      .home-card:hover {
+        transform: scale(0.98) translateZ(0);
+      }
+    }
+
+    .contract-card {
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      transition: all var(--transition-duration) var(--transition-timing);
+      position: relative;
+      overflow: hidden;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    @media (min-width: 768px) {
+      .contract-card:hover {
+        transform: scale(0.98) translateZ(0);
+      }
+    }
+
+    .project-card {
+      transition: all var(--transition-duration) var(--transition-timing);
+      transform: translateZ(0);
+      will-change: transform;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .project-card:hover {
+        transform: scale(0.98) translateZ(0);
+      }
+    }
+
+    .project-card.no-link.shake {
+      animation: shake 0.5s ease-in-out;
+    }
+
+    .review-card {
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      transition: all var(--transition-duration) var(--transition-timing);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    @media (min-width: 768px) {
+      .review-card:hover {
+        transform: scale(0.98) translateZ(0);
+      }
+    }
+
+    #error-panel {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(220, 38, 38, 0.9);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity var(--transition-duration) var(--transition-timing);
+    }
+
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      max-height: 100%;
+      overflow: hidden;
+      position: relative;
+      border-radius: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .image-container img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      transition: all var(--transition-duration) var(--transition-timing);
+      display: block;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    @media (min-width: 768px) {
+      .image-container:hover img {
+        transform: scale(1.05) translateZ(0);
+        filter: brightness(0.8) blur(3px);
+      }
+    }
+
+    .content-driven {
+      height: auto !important;
+      min-height: 0 !important;
+    }
+
+    .section-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      .section-container {
+        flex-direction: row;
+      }
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+      opacity: 0;
+      transition: opacity var(--transition-duration) var(--transition-timing);
+    }
+
+    @media (min-width: 768px) {
+      .image-container:hover .image-overlay {
+        opacity: 1;
+      }
+    }
+
+    a,
+    button,
+    [role="button"] {
+      cursor: pointer;
+      transition: all var(--transition-duration) var(--transition-timing);
+    }
+
+    @media (min-width: 768px) {
+      #reviews-section .grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .dikaout-card,
+      .sunkem-card {
+        grid-row: span 2;
+      }
+    }
+
+    .nav-container {
+      position: relative;
+    }
+
+    .nav-indicator {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: transform var(--transition-duration) var(--transition-timing);
+      z-index: 0;
+    }
+
+    .nav-button {
+      position: relative;
+      z-index: 1;
+      background-color: transparent !important;
+    }
+
+    .nav-button.active {
+      color: white;
+    }
+
+    .weather-widget {
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .weather-widget-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .weather-icon {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .weather-progress-container {
+      height: 2px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .weather-progress-blue {
+      height: 100%;
+      background: linear-gradient(to right, rgba(99, 102, 241, 0.5), rgba(34, 211, 238, 0.5));
+      border-radius: 1px 0 0 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .weather-progress-red {
+      height: 100%;
+      background: linear-gradient(to right, rgba(249, 115, 22, 0.5), rgba(251, 146, 60, 0.5));
+      border-radius: 0 1px 1px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .weather-progress-blue::after,
+    .weather-progress-red::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      animation: weather-pulse 2s infinite;
+    }
+
+    .stats-card {
+      transition: transform var(--transition-duration) var(--transition-timing);
+    }
+
+    @media (min-width: 768px) {
+      .stats-card:hover {
+        transform: scale(0.95);
+      }
+    }
+
+    .profile-header {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-border {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(135deg, #818cf8, #22d3ee);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: xor;
+      -webkit-mask-composite: xor;
+      opacity: 0.8;
+      transition: opacity var(--transition-duration) var(--transition-timing);
+    }
+
+    @media (min-width: 768px) {
+      .avatar-container:hover .avatar-border {
+        opacity: 1;
+      }
+    }
+
+    .avatar-wave {
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(129, 140, 248, 0.5) 0%, transparent 70%);
+      opacity: 0.2;
+      animation: wave 6s ease-in-out infinite;
+    }
+
+    .avatar-wave:nth-child(2) {
+      animation-delay: -1.5s;
+    }
+
+    .avatar-wave:nth-child(3) {
+      animation-delay: -3s;
+    }
+
+    .ambient-light {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.15;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .ambient-light:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(129, 140, 248, 0.8) 0%, transparent 70%);
+      animation: orb-anim 15s ease-in-out infinite;
+    }
+
+    .ambient-light:nth-child(2) {
+      bottom: 15%;
+      right: 10%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.8) 0%, transparent 70%);
+      animation: orb-anim 12s ease-in-out infinite reverse;
+      animation-delay: -5s;
+    }
+
+    .ambient-light:nth-child(3) {
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, transparent 80%);
+      animation: orb-anim 20s ease-in-out infinite;
+      animation-delay: -10s;
+    }
+
+    .ambient-light:nth-child(4) {
+      top: 30%;
+      right: 30%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.5) 0%, transparent 70%);
+      animation: orb-anim 18s ease-in-out infinite;
+      animation-delay: -8s;
+    }
+
+    .ambient-light:nth-child(5) {
+      bottom: 30%;
+      left: 30%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.5) 0%, transparent 70%);
+      animation: orb-anim 25s ease-in-out infinite reverse;
+      animation-delay: -15s;
+    }
+
+    @media (max-width: 767px) {
+      .header-panel {
+        flex-direction: column;
+        padding: 0.75rem !important;
+      }
+
+      .header-panel-content {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.5rem;
+      }
+
+      .avatar-name-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .mobile-nav-button {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        transition: all var(--transition-duration) var(--transition-timing);
+      }
+
+      .mobile-nav-button.active {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .image-container {
+        height: 300px !important;
+        max-height: 300px !important;
+      }
+
+      .image-container img {
+        height: 100% !important;
+        max-height: 100% !important;
+        object-fit: cover !important;
+      }
+    }
+
+    .layout-shift {
+      transition: transform 0.8s var(--transition-timing);
+    }
+
+    @media (max-width: 767px) {
+      .responsive-animate {
+        animation: layout-shift 0.8s ease-in-out forwards;
+      }
+    }
+
+    * {
+      will-change: auto;
+      contain: content;
+    }
+
+    img {
+      will-change: auto;
+      content-visibility: auto;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-foreground" oncopy="return false" oncut="return false" onpaste="return false"
+  onmousedown="return false" onselectstart="return false" oncontextmenu="return false">
+
+  <div class="relative min-h-screen overflow-hidden font-sans">
+    <div class="relative z-10 flex flex-col items-center py-6">
+      <div class="flex flex-col w-11/12 p-4 mb-12 max-w-7xl md:p-10 animate-fade-in">
+        <div class="flex flex-col gap-3 mb-6 md:flex-row md:justify-start">
+          <div
+            class="flex flex-col items-center w-full p-3 border md:flex-row md:p-4 backdrop-blur-xl bg-black/40 rounded-xl border-white/5 md:w-1/3 header-panel layout-shift responsive-animate">
+            <div class="flex flex-col items-center justify-between w-full md:flex-row header-panel-content">
+              <div class="flex items-center mb-4 space-x-4 md:mb-0 avatar-name-container">
+                <div class="relative overflow-hidden rounded-full w-14 h-14 group avatar-container">
+                  <div class="avatar-border"></div>
+                  <div class="avatar-wave"></div>
+                  <div class="avatar-wave"></div>
+                  <img src="img/avatar.jpg" alt="avatar"
+                    class="absolute inset-0 object-cover w-full h-full rounded-full">
+                </div>
+                <div>
+                  <div class="flex items-center">
+                    <h2 class="text-xl font-bold text-gradient-indigo-cyan">artem4ik493</h2>
+                    <a href="https://t.me/artem4ik493life" target="_blank"
+                      class="ml-2 px-1.5 py-0.5 text-xs bg-indigo-500/20 text-indigo-300 rounded-md border border-indigo-500/30 hover:bg-indigo-500/30 transition-colors duration-1000 hidden md:block">
+                      t.me/artem4ik493life
+                    </a>
+                  </div>
+                  <p class="text-sm text-zinc-300">Технический администратор</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3 border weather-widget backdrop-blur-xl bg-black/40 rounded-xl border-white/5 md:w-1/3">
+            <div class="grid grid-cols-3 gap-2 p-2 text-sm rounded-lg md:grid-cols-5">
+              <div class="flex flex-col items-center justify-center p-2 transition-all rounded-md">
+                <i data-lucide="thermometer" class="w-4 h-4 mb-1 text-red-400"></i>
+                <span id="weather-temp" class="font-medium text-white">--°C</span>
+              </div>
+              <div class="flex flex-col items-center justify-center p-2 transition-all rounded-md">
+                <i data-lucide="wind" class="w-4 h-4 mb-1 text-blue-400"></i>
+                <span id="weather-wind" class="font-medium text-white">-- м/с</span>
+              </div>
+              <div class="flex flex-col items-center justify-center p-2 transition-all rounded-md">
+                <i data-lucide="droplets" class="w-4 h-4 mb-1 text-cyan-400"></i>
+                <span id="weather-humidity" class="font-medium text-white">--%</span>
+              </div>
+              <div class="flex-col items-center justify-center hidden p-2 transition-all rounded-md md:flex">
+                <i data-lucide="gauge" class="w-4 h-4 mb-1 text-purple-400"></i>
+                <span id="weather-pressure" class="font-medium text-white">-- мм</span>
+              </div>
+              <div class="hidden p-2 transition-all rounded-md md:flex md:flex-col md:items-center md:justify-center">
+                <i data-lucide="eye" class="w-4 h-4 mb-1 text-green-400"></i>
+                <span id="weather-visibility" class="font-medium text-white">-- км</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative flex gap-6">
+          <div class="sticky hidden md:block top-6 h-fit">
+            <div class="p-3 border backdrop-blur-xl bg-black/40 rounded-xl border-white/5 nav-container">
+              <div class="nav-indicator"></div>
+              <div class="relative flex flex-col items-center space-y-6">
+                <button class="p-3 text-white transition-all duration-1000 rounded-lg nav-button active"
+                  data-section="home" data-index="0">
+                  <i data-lucide="home" class="w-6 h-6"></i>
+                </button>
+                <button class="p-3 transition-all duration-1000 rounded-lg nav-button text-zinc-400 hover:text-white"
+                  data-section="projects" data-index="1">
+                  <i data-lucide="folder" class="w-6 h-6"></i>
+                </button>
+                <button class="p-3 transition-all duration-1000 rounded-lg nav-button text-zinc-400 hover:text-white"
+                  data-section="reviews" data-index="2">
+                  <i data-lucide="star" class="w-6 h-6"></i>
+                </button>
+                <button class="p-3 transition-all duration-1000 rounded-lg nav-button text-zinc-400 hover:text-white"
+                  data-section="buy" data-index="3">
+                  <i data-lucide="banknote" class="w-6 h-6"></i>
+                </button>
+                <button class="p-3 transition-all duration-1000 rounded-lg nav-button text-zinc-400 hover:text-white"
+                  data-section="terms" data-index="3">
+                  <i data-lucide="settings" class="w-6 h-6"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="relative flex-1 space-y-4 content-driven">
+            <div id="home-section"
+              class="p-6 border section-transition section-visible backdrop-blur-xl bg-black/40 rounded-xl border-white/5">
+              <div class="items-start gap-8 section-container">
+                <div class="w-full md:w-2/3">
+                  <div class="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
+                    <div class="relative p-6 border home-card bg-black/20 rounded-xl border-white/5">
+                      <div class="flex items-center mb-3">
+                        <i data-lucide="code" class="w-5 h-5 mr-2 text-indigo-400"></i>
+                        <h3 class="text-lg font-semibold leading-6 text-white md:hidden">Навыки</h3>
+                        <h3 class="hidden text-lg font-semibold leading-6 text-white md:block">Технические навыки</h3>
+                      </div>
+                      <p class="mb-4 text-base leading-relaxed text-zinc-300">Специализируюсь на настройке и создании майнкрафт серверов,
+                        создании дискорд серверов и разработке дискорд ботов.
+                      </p>
+                    </div>
+                    <div class="relative p-6 border home-card bg-black/20 rounded-xl border-white/5">
+                      <div class="flex items-center mb-3">
+                        <i data-lucide="lightbulb" class="w-5 h-5 mr-2 text-cyan-400"></i>
+                        <h3 class="text-lg font-semibold leading-6 text-white md:hidden">Подход</h3>
+                        <h3 class="hidden text-lg font-semibold leading-6 text-white md:block">Творчески подход</h3>
+                      </div>
+                      <p class="mb-4 text-base leading-relaxed text-zinc-300">Сочетаю технические навыки и творческое
+                        видение для разработки решений, выделяющихся среди остальных. Специальный подход к каждому
+                        клиенту.</p>
+                      <div class="mt-3">
+                        <div class="flex items-center justify-between mb-2">
+                          <span class="text-xs text-zinc-400">Дизайн</span>
+                          <span class="text-xs text-cyan-400">50%</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-black/30 rounded-full overflow-hidden">
+                          <div class="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500"
+                            style="width: 50%"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-6 mt-0 border home-card bg-black/20 rounded-xl border-white/5">
+                    <div class="flex items-center mb-3">
+                      <i data-lucide="zap" class="w-5 h-5 mr-2 text-green-400"></i>
+                      <h3 class="text-lg font-semibold leading-6 text-white">Миссия</h3>
+                    </div>
+                    <p class="mb-4 text-base leading-relaxed text-zinc-300">Ежедневно ищу новые идеи и подходы в
+                      разработке дискорд ботов и майнкрафт серверов. Создаю не просто дискорд ботов, а мощные решения для автоматизации и.тд. 
+                      Моя цель воплощать самые смелые идеи клиентов.</p>
+                  </div>
+                  <div class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="p-4 border rounded-lg backdrop-blur-md bg-black/20 border-white/5 stats-card">
+                      <div class="flex items-center mb-2">
+                        <i data-lucide="calendar" class="w-4 h-4 mr-2 text-indigo-400"></i>
+                        <span class="text-sm text-zinc-300">Опыт работы</span>
+                      </div>
+                      <span class="block text-2xl font-bold text-indigo-400">2+</span>
+                      <span class="text-xs text-zinc-400">года</span>
+                    </div>
+                    <div class="p-4 border rounded-lg backdrop-blur-md bg-black/20 border-white/5 stats-card">
+                      <div class="flex items-center mb-2">
+                        <i data-lucide="folder" class="w-4 h-4 mr-2 text-cyan-400"></i>
+                        <span class="text-sm text-zinc-300">Проекты</span>
+                      </div>
+                      <span class="block text-2xl font-bold text-cyan-400">7</span>
+                      <span class="text-xs text-zinc-400">завершенных</span>
+                    </div>
+                    <div class="p-4 border rounded-lg backdrop-blur-md bg-black/20 border-white/5 stats-card">
+                      <div class="flex items-center mb-2">
+                        <i data-lucide="users" class="w-4 h-4 mr-2 text-green-400"></i>
+                        <span class="text-sm text-zinc-300">Клиенты</span>
+                      </div>
+                      <span class="block text-2xl font-bold text-green-400">100%</span>
+                      <span class="text-xs text-zinc-400">довольны результатом</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="self-stretch w-full mt-4 md:w-1/3 md:mt-0">
+                  <div class="max-h-[560px] image-container">
+                    <img src="img/home.jpg" alt="" class="rounded-lg" loading="lazy">
+                    <div class="image-overlay"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="projects-section"
+              class="p-6 border section-transition section-hidden backdrop-blur-xl bg-black/40 rounded-xl border-white/5"
+              style="margin-top: 0;">
+              <div id="projects-container" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+            </div>
+            <div id="reviews-section"
+              class="p-6 border section-transition section-hidden backdrop-blur-xl bg-black/40 rounded-xl border-white/5"
+              style="margin-top: 0;">
+              <div class="items-start gap-6 section-container">
+                <div class="w-full md:w-2/3">
+                  <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
+                    <div class="p-4 rounded-lg review-card md:col-span-2 md:row-span-1 md:p-6">
+                      <div class="flex items-center">
+                        <img src="avatar/avatar.png" class="mr-3 rounded-full w-7 h-7" alt="" loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">artem4ik493</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">А вот и отзывы моих клиентов! Ты можешь почитать их или
+                        задать им вопросы</p>
+                    </div>
+                    <div class="p-4 rounded-lg review-card md:col-span-1 md:row-span-1 md:p-6">
+                      <div class="flex items-center">
+                        <img src="avatar/artiik.png" class="mr-3 rounded-full w-7 h-7" alt="" loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">artiik</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">Быстро, качественно, надежно</p>
+                    </div>
+                    <div class="p-4 rounded-lg review-card md:col-span-1 md:row-span-2 md:p-6 dikaout-card">
+                      <div class="flex items-center">
+                        <img src="avatar/loloseek.png" class="mr-3 rounded-full w-7 h-7" alt="" loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">loloseek</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">Артемчик - лучший технический администратор которого я видел. Он может
+                        буквально всё. Попросишь - сделает.</p>
+                    </div>
+                    <div class="p-4 rounded-lg review-card md:col-span-1 md:row-span-2 md:p-6 sunkem-card">
+                      <div class="flex items-center">
+                        <img src="avatar/xorowuu.png" class="mr-3 rounded-full w-7 h-7" alt="" loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">XOROWUU2</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">Артемка знает своё дело. Умеет работать с
+                        качеством. Советую его услуги!</p>
+                    </div>
+                    <div class="p-4 rounded-lg review-card md:col-span-2 md:row-span-1 md:p-6 dimonchik-second">
+                      <div class="flex items-center">
+                        <img src="avatar/snoman.png" class="mr-3 rounded-full w-7 h-7" alt="" loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">YgSnoMan</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">Быстро справился со всеми поставленными для него
+                        задачами.</p>
+                    </div>
+                    <div class="p-4 rounded-lg review-card md:col-span-1 md:row-span-1 md:p-6 newuser-card">
+                      <div class="flex items-center">
+                        <img src="avatar/barsik.png" class="mr-3 rounded-full w-7 h-7" alt="" loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">Barsik</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">Отличная работа!</p>
+                    </div>
+                    <div class="p-4 rounded-lg review-card md:col-span-2 md:row-span-1 md:p-6">
+                      <div class="flex items-center">
+                        <img src="avatar/vinred.png" class="mr-3 rounded-full w-7 h-7" alt=""
+                          loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">VINRED5</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">Отличный напарник! Рекомендую!
+                      </p>
+                    </div>
+                    <div class="p-4 rounded-lg review-card md:col-span-2 md:row-span-1 md:p-6">
+                      <div class="flex items-center">
+                        <img src="avatar/artkovyu.png" class="mr-3 rounded-full w-7 h-7" alt="" loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">ARTKOVYU</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">То, что нужно! Цена радует глаза, а качество - убирает какие
+                        либо сомнения!</p>
+                    </div>
+                    <div class="p-4 rounded-lg review-card md:col-span-2 md:row-span-1 md:p-6">
+                      <div class="flex items-center">
+                        <img src="avatar/avatar.png" class="mr-3 rounded-full w-7 h-7" alt="" loading="lazy">
+                        <h4 class="mb-1 text-base font-semibold text-white md:text-lg">artem4ik493</h4>
+                      </div>
+                      <p class="mt-2 text-sm text-zinc-300">Хочешь попасть сюда? Тогда быстрее приобретай услугу!</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full mt-4 md:w-1/3 md:mt-0">
+                  <div class="max-h-[566px] image-container">
+                    <img src="img/reviews.jpg" alt="" class="rounded-lg" loading="lazy">
+                    <div class="image-overlay"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="terms-section"
+              class="p-6 border section-transition section-hidden backdrop-blur-xl bg-black/40 rounded-xl border-white/5"
+              style="margin-top: 0;">
+              <div class="gap-6 section-container">
+                <div class="grid w-full grid-cols-1 gap-6 md:w-2/3 md:grid-cols-2">
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-general">
+                        <i data-lucide="file-text" class="w-5 h-5 text-indigo-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white md:hidden">Положения</h4>
+                      <h4 class="hidden text-lg font-semibold leading-6 text-white md:block">Общие положения</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Настоящие условия регулируют отношения между Исполнителем и
+                      Клиентом в области разработки. Данный договор вступает в силу с момента его принятия обеими
+                      сторонами.</p>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-services">
+                        <i data-lucide="list" class="w-5 h-5 text-cyan-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white">Объем услуг</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Услуги предоставляются согласно техническому заданию. Изменения в
+                      ТЗ должны быть согласованы письменно и могут повлечь изменение стоимости и сроков выполнения</p>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-time">
+                        <i data-lucide="clock" class="w-5 h-5 text-amber-400"></i>
+                      </div>
+                      <h3 class="text-lg font-semibold leading-6 text-white md:hidden">Сроки</h3>
+                      <h3 class="hidden text-lg font-semibold leading-6 text-white md:block">Сроки выполнения</h3>
+                    </div>
+                    <p class="text-sm text-zinc-300">Сроки устанавливаются в договоре или зависят от своевременного
+                      предоставления материалов Клиентом. При задержке материалов сроки автоматически продлеваются.</p>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center w-6 h-6 mr-2 rounded-md terms-icon-payment">
+                        <i data-lucide="banknote" class="w-5 h-5 text-green-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white">Оплата</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Оплата производится перед началом работ в размере  от 70 до 100%. Возврат
+                      средств невозможен после начала работ. Дополнительные работы оплачиваются отдельно.</p>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-property">
+                        <i data-lucide="lightbulb" class="w-5 h-5 text-purple-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white">Собственность</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">После оплаты Клиент получает права на результаты работ, кроме
+                      стандартных компонентов. Исполнитель сохраняет право использовать проект где угодно.</p>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-confidential">
+                        <i data-lucide="lock" class="w-5 h-5 text-red-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white">Конфиденциальность</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Клиент может оставить марку Исполнителя на сайте. При удалении
+                      марки может прекратится поддержка без возмещения средств.</p>
+                  </div>
+                </div>
+                <div class="w-full mt-4 md:w-1/3 md:mt-0">
+                  <div class="max-h-[600px] image-container">
+                    <img src="img/terms.jpg" alt="" class="rounded-lg" loading="lazy">
+                    <div class="image-overlay"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div id="buy-section"
+              class="p-6 border section-transition section-hidden backdrop-blur-xl bg-black/40 rounded-xl border-white/5"
+              style="margin-top: 0;">
+              <div class="gap-6 section-container">
+                <div class="grid w-full grid-cols-1 gap-6 md:w-2/3 md:grid-cols-2">
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-general">
+                        <i data-lucide="file-text" class="w-5 h-5 text-indigo-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white md:hidden">Цены</h4>
+                      <h4 class="hidden text-lg font-semibold leading-6 text-white md:block">Формирование цены</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Цена формируется в зависимости от сложности задания,
+                      сроков его исполнения. Цены указанные ниже являются минимальными. Оплата дополнительных услуг
+                      производится отдельно.
+                    </p>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-services">
+                        <i data-lucide="server" class="w-5 h-5 text-cyan-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white">Сервер</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Услуга включает в себя настройку плагина, настройку сборки и других видов.
+                      Все ТЗ обговариваются отдельно в лс.
+                    </p>
+                    <hr class="my-3 border-zinc-600">
+                    <div class="text-sm font-semibold text-white">Цена: 1000₽</div>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-time">
+                        <i data-lucide="bot" class="w-5 h-5 text-amber-400"></i>
+                      </div>
+                      <h3 class="text-lg font-semibold leading-6 text-white md:hidden">Боты</h3>
+                      <h3 class="hidden text-lg font-semibold leading-6 text-white md:block">Боты</h3>
+                    </div>
+                    <p class="text-sm text-zinc-300">Написание дискорд или телеграмм ботов под конкретные задачи,
+                      система модерации, анти рейда, нейросети и так далее.</p>
+                    <hr class="my-3 border-zinc-600">
+                    <div class="text-sm font-semibold text-white">Цена: 800₽</div>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center w-6 h-6 mr-2 rounded-md terms-icon-payment">
+                        <i data-lucide="panel-top" class="w-5 h-5 text-green-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white">Создание сайта</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Создание сайта под разные задачи.</p>
+                    <hr class="my-3 border-zinc-600">
+                    <div class="text-sm font-semibold text-white">Покупка временно недоступна</div>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-property">
+                        <i data-lucide="lightbulb" class="w-5 h-5 text-purple-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white">Дискорд сервер</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Создание дискорд сервера под ваше описание, установка шаблона, настройка каналов
+                      внедрение логов и так далее
+                    </p>
+                    <hr class="my-3 border-zinc-600">
+                    <div class="text-sm font-semibold text-white">Цена: 400₽</div>
+                  </div>
+                  <div class="contract-card">
+                    <div class="flex items-center mb-3">
+                      <div class="flex items-center justify-center mr-2 rounded-md terms-icon-confidential">
+                        <i data-lucide="book-open-text" class="w-5 h-5 text-red-400"></i>
+                      </div>
+                      <h4 class="text-lg font-semibold leading-6 text-white">Другие услуги</h4>
+                    </div>
+                    <p class="text-sm text-zinc-300">Остальные услуги можно обговорить в ЛС</p>
+                    <hr class="my-3 border-zinc-600">
+                    <div class="text-sm font-semibold text-white">Цена: договорная</div>
+                  </div>
+                </div>
+                <div class="w-full mt-4 md:w-1/3 md:mt-0">
+                  <div class="max-h-[600px] image-container">
+                    <img src="img/buy.jpg" alt="" class="rounded-lg" loading="lazy">
+                    <div class="image-overlay"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="fixed bottom-0 left-0 right-0 z-50 p-3 border-t md:hidden backdrop-blur-xl bg-black/50 border-white/5 animate-fade-in-up">
+      <div class="relative flex items-center justify-center space-x-6">
+        <div class="flex flex-col items-center">
+          <button class="text-white mobile-nav-button active" data-section="home">
+            <i data-lucide="home" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="flex flex-col items-center">
+          <button class="mobile-nav-button text-zinc-400" data-section="projects">
+            <i data-lucide="folder" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="flex flex-col items-center">
+          <button class="mobile-nav-button text-zinc-400" data-section="reviews">
+            <i data-lucide="star" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="flex flex-col items-center">
+          <button class="mobile-nav-button text-zinc-400" data-section="buy">
+            <i data-lucide="banknote" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div class="flex flex-col items-center">
+          <button class="mobile-nav-button text-zinc-400" data-section="terms">
+            <i data-lucide="settings" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="error-panel" style="display: none;">
+    <p>Произошла ошибка</p>
+  </div>
+  <script>
+    const projectsData = [
+      { id: 7, title: "NorthLights.org", description: "Лучший политический сервер с множеством механик.", status: "completed", statusText: "Завершён", progress: 100, dueDate: "2025-04-5", tags: ["Server", "Backend"], url: "https://northlights.org" },
+      { id: 6, title: "XPmine", description: "XPmine - много режимный кроссплатформенный игровой сервер с уникальными механиками", status: "in-progress", statusText: "В разработке", progress: 4, dueDate: "2025-03-13", tags: ["Server", "Backend"], url: "https://t.me/XPmine" },
+      { id: 5, title: "NorthLights.org bot", description: "Многофункциональный дискорд бот включающий в себя системы модерации, развлечений и тд.", status: "completed", statusText: "Завершён", progress: 100, dueDate: "2025-03-017", tags: ["Bot", "Backend", "Ai", "Sqlite", "json"], url: "https://discord.gg/northlights-discord-server-902260202458451968" },
+      { id: 4, title: "AmethystCraft", description: "Игровой сервер с множеством возможностей!", status: "stop", statusText: "Не получает обновлений", progress: 0, dueDate: "2024-08-31", tags: ["Server", "Backend", "json"], url: "" },
+      { id: 3, title: "Bio", description: "Cайт с информацией о себе", status: "completed", statusText: "Завершён", progress: 100, dueDate: "2025-05-11", tags: ["UI/UX", "Frontend"], url: "https://artem4ik493-4si.pages.dev/" },
+      { id: 2, title: "VPN", description: "Наш VPN обеспечивает защиту данных, анонимность в сети и доступ к любым сайтам без ограничений. Высокая скорость, надёжное шифрование и высококачественные сервера — путешествуйте по интернету без риска!", status: "completed", statusText: "Завершён", progress: 100, dueDate: "2025-01-28", tags: ["vpn"], url: "" },
+    ];
+
+    const DOM = new Map();
+    const state = {
+      sections: {},
+      activeSection: 'home',
+      transitionInProgress: false,
+      isInitialized: false,
+      weatherCache: {
+        timestamp: 0,
+        data: null,
+        expiryTime: 30 * 60 * 1000
+      }
+    };
+
+    function $(selector) {
+      if (!DOM.has(selector)) {
+        DOM.set(selector, document.querySelector(selector));
+      }
+      return DOM.get(selector);
+    }
+
+    const tagIcons = {
+      'UI/UX': `<i data-lucide="layout-dashboard" class="w-4 h-4 mr-1 text-purple-400"></i>`,
+      'Frontend': `<i data-lucide="code-xml" class="w-4 h-4 mr-1 text-blue-400"></i>`,
+      'Backend': `<i data-lucide="box" class="w-4 h-4 mr-1 text-orange-400"></i>`,
+      'Bot': '<i data-lucide="bot" class="w-4 h-4 mr-1 text-yellow-400"></i>',
+      'Server': '<i data-lucide="wrench" class="w-4 h-4 mr-1 text-purple-400"></i>',
+      'Sqlite': '<i data-lucide="satellite" class="w-4 h-4 mr-1 text-blue-400"></i>',
+      'Ai': '<i data-lucide="wrench" class="w-4 h-4 mr-1 text-red-400"></i>',
+      'json': '<i data-lucide="file-json" class="w-4 h-4 mr-1 text-yellow-400"></i>',
+      'vpn': '<i data-lucide="globe-lock" class="w-4 h-4 mr-1 text-yellow-400"></i>',
+      'MySQL': `<i data-lucide="leaf" class="w-4 h-4 mr-1 text-green-400"></i>`
+    };
+
+    function getTagIcon(tag) {
+      return tagIcons[tag] || `<i data-lucide="tag" class="w-3 h-3 mr-1 text-gray-400"></i>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp, { passive: true });
+
+    function initApp() {
+      if (state.isInitialized) return;
+
+      lucide.createIcons();
+
+      state.sections.home = $('#home-section');
+      state.sections.projects = $('#projects-section');
+      state.sections.reviews = $('#reviews-section');
+      state.sections.buy = $('#buy-section');
+      state.sections.terms = $('#terms-section');
+
+      Object.keys(state.sections).forEach(key => {
+        if (key === 'home') {
+          state.sections[key].classList.add('section-visible');
+          state.sections[key].style.position = 'relative';
+        } else {
+          state.sections[key].classList.add('section-hidden');
+          state.sections[key].style.position = 'absolute';
+        }
+      });
+
+      document.querySelectorAll('.section-transition').forEach(section => {
+        section.classList.add('content-driven');
+      });
+
+      setupEventListeners();
+      initNavIndicator();
+      getUserLocationAndWeather();
+
+      requestAnimationFrame(() => {
+        setTimeout(adjustImageHeights, 100);
+      });
+
+      const mediaQuery = window.matchMedia('(max-width: 767px)');
+      mediaQuery.addEventListener('change', handleResponsiveChange, { passive: true });
+
+      state.isInitialized = true;
+    }
+
+    function handleResponsiveChange(e) {
+      const elements = document.querySelectorAll('.layout-shift');
+      elements.forEach(element => {
+        element.classList.add('responsive-animate');
+        setTimeout(() => {
+          element.classList.remove('responsive-animate');
+        }, 800);
+      });
+    }
+
+    function initNavIndicator() {
+      const navIndicator = document.querySelector('.nav-indicator');
+      const activeButton = document.querySelector('.nav-button.active');
+
+      if (navIndicator && activeButton) {
+        navIndicator.style.transform = `translateY(${activeButton.offsetTop}px)`;
+      }
+    }
+
+    function setupEventListeners() {
+      document.addEventListener('click', event => {
+        const navButton = event.target.closest('.nav-button, .mobile-nav-button');
+        if (navButton) {
+          const section = navButton.getAttribute('data-section');
+          setActiveSection(section);
+
+          if (section === 'projects' && !$('#projects-container').children.length) {
+            renderProjects();
+          }
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', debounce(adjustImageHeights, 200), { passive: true });
+    }
+
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    function setActiveSection(section) {
+      if (state.activeSection === section || state.transitionInProgress) return;
+
+      const currentSection = state.sections[state.activeSection];
+      const newSection = state.sections[section];
+
+      if (!currentSection || !newSection) return;
+
+      state.transitionInProgress = true;
+
+      currentSection.classList.remove('section-visible');
+      currentSection.classList.add('section-hidden');
+      currentSection.style.position = 'absolute';
+
+      newSection.style.position = 'relative';
+      newSection.classList.remove('section-hidden');
+      newSection.classList.add('section-visible');
+
+      updateNavButtons(section);
+
+      state.activeSection = section;
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          adjustImageHeights();
+          state.transitionInProgress = false;
+        }, 1000);
+      });
+    }
+
+    function updateNavButtons(section) {
+      const navButtons = document.querySelectorAll('.nav-button');
+      const navIndicator = document.querySelector('.nav-indicator');
+
+      navButtons.forEach(button => {
+        const buttonSection = button.getAttribute('data-section');
+        if (buttonSection === section) {
+          button.className = 'p-3 text-white transition-all rounded-lg nav-button active';
+
+          if (navIndicator) {
+            navIndicator.style.transform = `translateY(${button.offsetTop}px)`;
+          }
+        } else {
+          button.className = 'p-3 transition-all duration-1000 rounded-lg nav-button text-zinc-400 hover:text-white';
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-button').forEach(button => {
+        const buttonSection = button.getAttribute('data-section');
+        if (buttonSection === section) {
+          button.className = 'mobile-nav-button text-white active';
+        } else {
+          button.className = 'mobile-nav-button text-zinc-400';
+        }
+      });
+    }
+
+    function renderProjects() {
+      const container = $('#projects-container');
+      if (!container || container.children.length > 0) return;
+
+      const statusColors = {
+        'completed': 'bg-green-500/20 text-green-300',
+        'in-progress': 'bg-blue-500/20 text-blue-300',
+        'stop': 'bg-red-500/20 text-red-300',
+        'update': 'bg-indigo-500/20 text-indigo-300',
+        'improvement': 'bg-amber-500/20 text-amber-300'
+      };
+
+      const progressGradients = {
+        100: 'from-green-500 to-emerald-500',
+        80: 'from-teal-500 via-cyan-500 to-blue-500',
+        60: 'from-indigo-500 via-violet-500 to-purple-500',
+        40: 'from-purple-500 via-fuchsia-500 to-pink-500',
+        20: 'from-pink-500 via-rose-500 to-red-500',
+        0: 'from-red-500 via-orange-500 to-amber-500'
+      };
+
+      function getProgressGradient(progress) {
+        const thresholds = Object.keys(progressGradients).sort((a, b) => b - a);
+        for (const threshold of thresholds) {
+          if (progress >= threshold) {
+            return progressGradients[threshold];
+          }
+        }
+        return progressGradients[0];
+      }
+
+      const fragment = document.createDocumentFragment();
+
+      projectsData.forEach(project => {
+        const card = document.createElement('div');
+        card.className = `project-card backdrop-blur-md bg-black/20 rounded-lg p-4 border border-white/5 flex flex-col h-auto ${!project.url ? 'no-link' : ''}`;
+        card.dataset.url = project.url || '';
+
+        const statusColor = statusColors[project.status] || 'bg-gray-500/20 text-gray-300';
+        const progressGradient = getProgressGradient(project.progress);
+
+        card.innerHTML = `
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-bold text-white">${project.title}</h3>
+          <div class="text-xs px-2 py-1 rounded-full ${statusColor}">${project.statusText}</div>
+        </div>
+        <p class="mt-2 text-sm text-zinc-400 line-clamp-2">${project.description}</p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          ${project.tags.map(tag => `
+            <span class="flex items-center px-2 py-1 text-xs rounded-full bg-white/5 text-zinc-300">
+              ${getTagIcon(tag)} ${tag}
+            </span>
+          `).join('')}
+        </div>
+        <div class="mt-4">
+          <div class="w-full h-2 overflow-hidden rounded-full bg-white/5">
+            <div class="h-full bg-gradient-to-r ${progressGradient}" style="width: ${project.progress}%"></div>
+          </div>
+          <div class="flex justify-between mt-2 text-xs text-zinc-400">
+            <span>Прогресс</span>
+            <span>${project.progress}%</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-3 mt-5 border-t border-white/5">
+          <span class="text-xs text-zinc-400">${new Date(project.dueDate).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <i data-lucide="external-link" class="w-4 h-4 text-zinc-400"></i>
+        </div>
+      `;
+
+        card.addEventListener('click', () => {
+          const url = card.dataset.url;
+          if (url && url.trim() !== '') {
+            window.open(url, '_blank');
+          } else {
+            card.classList.add('shake');
+            setTimeout(() => {
+              card.classList.remove('shake');
+            }, 500);
+          }
+        });
+
+        fragment.appendChild(card);
+      });
+
+      container.appendChild(fragment);
+
+      lucide.createIcons({
+        attrs: {
+          class: ["lucide-icon"]
+        }
+      });
+    }
+
+    function adjustImageHeights() {
+      const imageContainers = document.querySelectorAll('.section-visible .image-container');
+      if (!imageContainers.length) return;
+
+      imageContainers.forEach(container => {
+        const section = container.closest('.section-visible');
+        if (!section) return;
+
+        const contentContainer = section.querySelector('.section-container > div:first-child');
+        if (!contentContainer) return;
+
+        const contentHeight = contentContainer.offsetHeight;
+
+        container.style.height = `${contentHeight}px`;
+        container.style.maxHeight = `${contentHeight}px`;
+
+        const img = container.querySelector('img');
+        if (img) {
+          img.style.height = '100%';
+          img.style.maxHeight = `${contentHeight}px`;
+        }
+      });
+    }
+
+    function showError(message) {
+      const errorPanel = $('#error-panel');
+      if (!errorPanel) return;
+
+      errorPanel.textContent = message;
+      errorPanel.style.display = 'block';
+      errorPanel.style.opacity = '1';
+
+      setTimeout(() => {
+        errorPanel.style.opacity = '0';
+        setTimeout(() => {
+          errorPanel.style.display = 'none';
+        }, 1000);
+      }, 3000);
+    }
+
+    async function getUserLocationAndWeather() {
+      const now = Date.now();
+      if (state.weatherCache.data && (now - state.weatherCache.timestamp < state.weatherCache.expiryTime)) {
+        updateWeatherUI(state.weatherCache.data);
+        return;
+      }
+
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+        const geoResponse = await fetch('https://ipapi.co/json/', {
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (!geoResponse.ok) {
+          throw new Error('Failed to fetch location data');
+        }
+
+        const geoData = await geoResponse.json();
+
+        if (geoData && geoData.city) {
+          fetchWeatherByCity(geoData.city);
+        } else {
+          fetchWeatherByCity('Kyiv');
+        }
+      } catch (error) {
+        console.error('Error getting user location:', error);
+        fetchWeatherByCity('Kyiv');
+      }
+    }
+
+    async function fetchWeatherByCity(city) {
+      try {
+        const apiKey = '4d8fb5b93d4af21d66a2948710284366';
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ru`;
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+        const response = await fetch(url, {
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          throw new Error(`Weather API returned ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.cod === 200) {
+          state.weatherCache.data = data;
+          state.weatherCache.timestamp = Date.now();
+
+          updateWeatherUI(data);
+        } else {
+          if (city !== 'Kyiv') {
+            fetchWeatherByCity('Kyiv');
+          } else {
+            throw new Error('Не удалось получить данные о погоде');
+          }
+        }
+      } catch (error) {
+        console.error('Ошибка при получении данных о погоде:', error);
+        $('#weather-temp').textContent = '--°C';
+      }
+    }
+
+    function updateWeatherUI(data) {
+      const temp = Math.round(data.main.temp);
+      $('#weather-temp').textContent = `${temp > 0 ? '+' : ''}${temp}°C`;
+
+      const windSpeed = Math.round(data.wind.speed);
+      $('#weather-wind').textContent = `${windSpeed} м/с`;
+
+      $('#weather-humidity').textContent = `${data.main.humidity}%`;
+
+      const pressureInMmHg = Math.round(data.main.pressure * 0.750062);
+      $('#weather-pressure').textContent = `${pressureInMmHg} мм`;
+
+      const visibility = data.visibility ? Math.round(data.visibility / 100) / 10 : '--';
+      $('#weather-visibility').textContent = `${visibility} км`;
+    }
+
+    let weatherUpdateInterval;
+    function scheduleWeatherUpdate() {
+      clearInterval(weatherUpdateInterval);
+      weatherUpdateInterval = setInterval(getUserLocationAndWeather, 30 * 60 * 1000);
+    }
+
+    scheduleWeatherUpdate();
+  </script>
+</body>
+
+</html>
